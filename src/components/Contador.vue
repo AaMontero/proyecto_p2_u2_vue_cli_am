@@ -51,7 +51,7 @@ button{
     cursor: pointer;
 }
 button:hover{
-    background-color: black;
+    background-color: skyblue;
     transition:0.1s ease-in-out;
 }
 
