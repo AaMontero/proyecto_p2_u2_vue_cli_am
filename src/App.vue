@@ -1,12 +1,6 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
-  <!--<HelloWorld msg="Welcome to Your Vue.js App"/>-->
-  <Contador />
-  <!--<Calculadora/>-->
-  <!--v-bind evalua el contenido como js-->
-  <Contador2 titulo="Titulo 1" v-bind:inicio="valorInicio" />
-  <Contador2 titulo="Titulo 3" v-bind:inicio="6" />
-  <DatosBasios v-bind:tipo="tipo" />
+  <Pregunta />
   <h1></h1>
   <h1></h1>
 </template>
@@ -16,6 +10,7 @@ import Contador from "./components/Contador.vue";
 import Contador2 from "./components/Contador2.vue";
 import DatosBasios from "./components/DatosBasicos.vue";
 import Calculadora from "./components/Calculadora.vue";
+import Pregunta from "./components/Pregunta.vue";
 export default {
   name: "App",
   data() {
@@ -27,8 +22,9 @@ export default {
   components: {
     Contador,
     Contador2,
-    Calculadora,  
+    Calculadora,
     DatosBasios,
+    Pregunta,
   },
 };
 </script>
