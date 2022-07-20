@@ -1,11 +1,12 @@
-!<template>
-  <h2>Contador!!!!</h2>
+<template>
+  <!--//HTML-->
   <h2>{{ muestraTitulo }}</h2>
   <p>{{ numero }} <sup>2</sup> = {{ obtenerCuadradoComputado }}</p>
   <p>{{ numero }} <sup>2</sup> = {{ obtenerCuadradoComputado }}</p>
   <p>{{ numero }} <sup>2</sup> = {{ obtenerCuadradoComputado }}</p>
   <p>{{ numero }} <sup>2</sup> = {{ obtenerCuadradoComputado }}</p>
   <p>{{ numero }} <sup>2</sup> = {{ obtenerCuadradoComputado }}</p>
+
   <div>
     <button v-on:click="incrementar">+1</button>
     <button v-on:click="decrementar">-1</button>
@@ -14,24 +15,33 @@
 
 <script>
 export default {
-  name: "Contador1",
-  props: [
-    //primera forma, infiere el tipo de dato
-    "titulo",
-    "inicio",
-  ],
+  name: "Contador123",
+  props: {
+    //segunda forma, declarar implicitamente el tipo de dato
+    titulo: String,
+    inicio: {
+      type: Number,
+      required: false,
+      default: 100,
+      validator(value){
+        //validacion que retorne un true o false
+        return value > 0
+      }
+    }
+  },
   data() {
     return {
-      numero: 5,
+      numero: this.inicio,
     };
   },
   methods: {
     obtenerCuadrado() {
-      console.log("entro al cuadrado");
+      console.log("Entro al calculo cuadrado");
       return this.numero * this.numero;
     },
     incrementar() {
-      return (this.numero = this.numero + 1);
+      //return this.numero++
+      return this.numero = this.numero + 1;
     },
     decrementar() {
       return this.numero--;
@@ -39,8 +49,11 @@ export default {
   },
   computed: {
     obtenerCuadradoComputado() {
-      console.log("Entro cuadrado computado");
+      console.log("Entro al calculo computado");
       return this.numero * this.numero;
+    },
+    muestraTitulo() {
+      return this.titulo || "Titulo Vacio";
     },
   },
 };
@@ -55,8 +68,8 @@ button {
   cursor: pointer;
 }
 button:hover {
-  background-color: black;
-  transition: 0.1s ease-in-out;
+  background-color: #5aa;
+  transition: 0.3s ease-in-out;
 }
 
-</style>
+</style> 
